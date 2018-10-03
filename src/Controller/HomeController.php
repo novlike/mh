@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\Type\CharacterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,14 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends Controller
 {
     /**
-     * Homepage
+     * Homepage: propose le formualaire
+     *
      * @author novlike <novlike@gmail.com>
      * @Route("/", name="homepage", methods={"GET"})
-     * @Template("")
+     * @Template(@todo)
      */
     public function index()
     {
-        //@todo form type
-        return array();
+        $form = $this->createForm(CharacterType::class);
+
+        return array('form' => $form->createView());
     }
 }
