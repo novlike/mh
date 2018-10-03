@@ -28,4 +28,9 @@ class HomeController extends Controller
 
         return array('form' => $form->createView());
     }
+
+    public function result()
+    {
+
+    }
 }
